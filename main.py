@@ -23,6 +23,10 @@ async def get_todo(todo_id: int):
         if todo['todo_id'] == todo_id:
             return {'result': todo}
 
+@api.get('/todos')
+def get_todos():
+#    return all_todos # a simple way...
+
 
 
 # GET, POST, PUT, DELETE
