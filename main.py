@@ -23,9 +23,13 @@ async def get_todo(todo_id: int):
         if todo['todo_id'] == todo_id:
             return {'result': todo}
 
+# localhost:9999/ - index endpoint 
+# localhost:9999/todos/2
+# localhost:9999/todos?first_n=3 # query parameter
+
 @api.get('/todos')
-def get_todos():
-#    return all_todos # a simple way...
+def get_todos(): # But let's try and get, for example, the first n todos, using the so called query parameters
+#    return all_todos # a simple way... 
 
 
 
