@@ -5,6 +5,26 @@ from fastapi import FastAPI
 api = FastAPI()
 
 
+# Let's use some pseudo DB, because we will not use SQLAlchemy for now.
+# We will use a list of dictionaries to simulate some storage
+
+all_todos = [
+    {'todo_id': 1, 'todo_name': 'Sports', 'todo_description': 'Go to the gym'},
+    {'todo_id': 2, 'todo_name': 'Read', 'todo_description': 'Read 10 pages'},    
+    {'todo_id': 3, 'todo_name': 'Shop', 'todo_description': 'Go shopping'},
+    {'todo_id': 4, 'todo_name': 'Study', 'todo_description': 'Study for exam'},
+    {'todo_id': 5, 'todo_name': 'Meditate', 'todo_description': 'Meditate 20 minutes'},
+]
+
+# We will use something called path parameters...
+@api.get('/todos/{todo_id}')
+async def get_todo(todo_id: int):
+    for todo in all_todos:
+        if todo['todo_id'] == todo_id:
+            return {'result': todo}
+
+
+
 # GET, POST, PUT, DELETE
 @api.get('/')
 def index():
@@ -28,4 +48,9 @@ async def get_data_from_db():
 # For example, you can receive a request for weather or the stock process in an asynchronous way...
 
 # FastAPI itself, since it runs on scarlett, is still gonna make them async, even if all the endpoints are sync
+# But it still makes sense to use async def. You can use all of this in FastAPI as well
+
+
+
+
 
