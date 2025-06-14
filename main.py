@@ -25,11 +25,14 @@ async def get_todo(todo_id: int):
 
 # localhost:9999/ - index endpoint 
 # localhost:9999/todos/2
-# localhost:9999/todos?first_n=3 # query parameter
+# localhost:9999/todos?first_n=3 # query parameter # that is also part of the url, but it is not a url, it is a query parameter
 
 @api.get('/todos')
-def get_todos(): # But let's try and get, for example, the first n todos, using the so called query parameters
-#    return all_todos # a simple way... 
+def get_todos(first_n = None):
+    if first_n:
+        return all_todos[:first_n]
+    else:
+        return all_todos
 
 
 
