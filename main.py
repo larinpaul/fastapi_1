@@ -28,7 +28,7 @@ async def get_todo(todo_id: int):
 # localhost:9999/todos?first_n=3 # query parameter # that is also part of the url, but it is not a url, it is a query parameter
 
 @api.get('/todos')
-def get_todos(first_n = None):
+def get_todos(first_n: int = None):
     if first_n:
         return all_todos[:first_n]
     else:
