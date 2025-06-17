@@ -62,6 +62,26 @@ async def get_data_from_db():
 # But it still makes sense to use async def. You can use all of this in FastAPI as well
 
 
+# We will now imlement and endpoint in an imperfect way... After that we will do it properly just to see the difference.
+@api.post('/todos')
+def create_todos(todo: dict):
+        new_todo_id = max(todo['todo_id'] for todo in all_todos) + 1
+
+        new_todo = {
+            'todo_id': new_todo_id,
+            'todo_name': todo['todo_name'],
+            'todo_description': todo['todo_description']
+        }
+
+        all_todos.append(new_todo)
+
+        return new_todo
+
+
+
+
+
+
 
 
 
