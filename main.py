@@ -77,6 +77,7 @@ def create_todos(todo: dict):
 
         return new_todo
 
+# We can go to Swagger UI, 127.0.0.1:9999/docs
 
 
 
