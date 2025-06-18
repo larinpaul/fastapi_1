@@ -1,5 +1,8 @@
 # 2025 06 13
 
+from enum import IntEnum
+from typing import List, Optional
+
 from fastapi import FastAPI
 
 api = FastAPI()
@@ -101,4 +104,8 @@ def delete_todo(todo_id: int):
             deleted_todo = all_todos.pop(index)
             return deleted_todo
     return "Error, not found"
+
+
+# Pydantic schemas and validation
+
 
