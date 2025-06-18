@@ -94,5 +94,11 @@ def update_todo(todo_id: int, updated_todo: dict):
             return todo
     return "Error, not found"
 
-
+@api.delete('/todos/{todo_id}')
+def delete_todo(todo_id: int):
+    for index, todo in enumerate(all_todos)::
+        if todo['todo_id'] == todo_id:
+            deleted_todo = all_todos.pop(index)
+            return deleted_todo
+    return "Error, not found"
 
