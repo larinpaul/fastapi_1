@@ -106,6 +106,5 @@ def delete_todo(todo_id: int):
     return "Error, not found"
 
 
-# Pydantic schemas and validation
-
+# Pydantic schemas and validation # pip3 install pydantic
 
