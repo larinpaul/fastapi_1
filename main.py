@@ -8,6 +8,15 @@ from pydantic import BaseModel, Field
 
 api = FastAPI()
 
+# Let's define out schemas
+
+class Priority(IntEnum):
+    LOW = 3
+    MEDIUM = 2
+    HIGH = 1
+
+
+
 
 # Let's use some pseudo DB, because we will not use SQLAlchemy for now.
 # We will use a list of dictionaries to simulate some storage
