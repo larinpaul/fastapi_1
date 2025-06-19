@@ -16,6 +16,8 @@ class Priority(IntEnum):
     HIGH = 1
 
 
+class TodoBase(BaseModel):
+    todo_name: str = Field(..., min_length=3, max_length=512, description='Name of the todo')
 
 
 # Let's use some pseudo DB, because we will not use SQLAlchemy for now.
