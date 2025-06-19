@@ -18,6 +18,8 @@ class Priority(IntEnum):
 
 class TodoBase(BaseModel):
     todo_name: str = Field(..., min_length=3, max_length=512, description='Name of the todo')
+    todo_description: str = Field(..., description='Description of the todo')
+    priority: Priority = Field(default=Priority.LOW, description='Priority of the tood')
 
 
 # Let's use some pseudo DB, because we will not use SQLAlchemy for now.
