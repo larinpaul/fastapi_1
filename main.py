@@ -4,6 +4,7 @@ from enum import IntEnum
 from typing import List, Optional
 
 from fastapi import FastAPI
+from pydantic import BaseModel, Field
 
 api = FastAPI()
 
@@ -107,4 +108,7 @@ def delete_todo(todo_id: int):
 
 
 # Pydantic schemas and validation # pip3 install pydantic
+
+
+
 
