@@ -22,6 +22,10 @@ class TodoBase(BaseModel):
     priority: Priority = Field(default=Priority.LOW, description='Priority of the tood')
 
 
+class TodoCreate(TodoBase):
+    pass
+
+
 # Let's use some pseudo DB, because we will not use SQLAlchemy for now.
 # We will use a list of dictionaries to simulate some storage
 
