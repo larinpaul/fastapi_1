@@ -25,6 +25,10 @@ class TodoBase(BaseModel):
 class TodoCreate(TodoBase):
     pass
 
+class TodoUpdate(BaseModel): # It is going to inherit from base, but it is going to be optional
+    todo_name: str = Field(..., min_length=3, max_length=512, description='Name of the todo')
+    todo_description: str = Field(..., description='Description of the todo')
+    priority: Priority = Field(default=Priority.LOW, description='Priority of the tood')    
 
 # Let's use some pseudo DB, because we will not use SQLAlchemy for now.
 # We will use a list of dictionaries to simulate some storage
