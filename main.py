@@ -26,7 +26,7 @@ class TodoCreate(TodoBase):
     pass
 
 class Todo(TodoBase)
-    pass
+    todo_id: int = Field(..., description='Unique identifier of the todo')
 
 
 class TodoUpdate(BaseModel): # It is going to inherit from base, but it is going to be optional
