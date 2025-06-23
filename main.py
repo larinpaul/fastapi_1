@@ -43,11 +43,11 @@ all_todos = [
 ]
 
 # We will use something called path parameters...
-@api.get('/todos/{todo_id}')
+@api.get('/todos/{todo_id}', response_model=Todo)
 async def get_todo(todo_id: int):
     for todo in all_todos:
         if todo.todo_id == todo_id:
-            return {'result': todo}
+            return todo
 
 # localhost:9999/ - index endpoint 
 # localhost:9999/todos/2
