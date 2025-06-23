@@ -46,7 +46,7 @@ all_todos = [
 @api.get('/todos/{todo_id}')
 async def get_todo(todo_id: int):
     for todo in all_todos:
-        if todo['todo_id'] == todo_id:
+        if todo.todo_id == todo_id:
             return {'result': todo}
 
 # localhost:9999/ - index endpoint 
