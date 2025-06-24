@@ -53,7 +53,7 @@ async def get_todo(todo_id: int):
 # localhost:9999/todos/2
 # localhost:9999/todos?first_n=3 # query parameter # that is also part of the url, but it is not a url, it is a query parameter
 
-@api.get('/todos')
+@api.get('/todos', response_model=List[Todo])
 def get_todos(first_n: int = None):
     if first_n:
         return all_todos[:first_n]
