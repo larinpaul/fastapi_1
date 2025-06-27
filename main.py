@@ -91,13 +91,12 @@ async def get_data_from_db():
 # We will now imlement and endpoint in an imperfect way... After that we will do it properly just to see the difference.
 @api.post('/todos', response_model=Todo)
 def create_todos(todo: TodoCreate):
-        new_todo_id = max(todo['todo_id'] for todo in all_todos) + 1
+        new_todo_id = max(todo.todo_id for todo in all_todos) + 1
 
-        new_todo = {
-            'todo_id': new_todo_id,
-            'todo_name': todo['todo_name'],
-            'todo_description': todo['todo_description']
-        }
+        new_todo = Todo(todo_id = new_todo_id,
+                        todo_name = todo.todo_name,
+                        todo_description = todo.todo_description,
+                        priority = todo.priority)
 
         all_todos.append(new_todo)
 
