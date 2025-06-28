@@ -113,9 +113,10 @@ def create_todos(todo: TodoCreate):
 @api.put('/todos/{todo_id}', response_model=Todo)
 def update_todo(todo_id: int, updated_todo: TodoUpdate):
     for todo in all_todos:
-        if todo['todo_id'] == todo_id:
-            todo['todo_name'] = updated_todo['todo_name']
-            todo['todo_description'] = updated_todo['todo_description']
+        if todo.todo_id == todo_id:
+            todo.todo_name = updated_todo.todo_name
+            todo.todo_description = updated_todo.todo_description
+            todo.priority = updated_todo.priority
             return todo
     return "Error, not found"
 
