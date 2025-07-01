@@ -49,6 +49,8 @@ async def get_todo(todo_id: int):
         if todo.todo_id == todo_id:
             return todo
 
+    raise HTTPException(status_code=404, detail='Todo not found')
+
 # localhost:9999/ - index endpoint 
 # localhost:9999/todos/2
 # localhost:9999/todos?first_n=3 # query parameter # that is also part of the url, but it is not a url, it is a query parameter
