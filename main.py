@@ -134,5 +134,21 @@ def delete_todo(todo_id: int):
 # Pydantic schemas and validation # pip3 install pydantic
 
 
+{
+    "todo_name": "newtodo",
+    "todo_description": "desc",
+    "priority": 3
+}
 
+"""
+curl -X 'POST' \
+    'http://127.0.0.1:9999/todos' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{
+    "todo_name": "newtodo",
+    "todo_description": "desc".
+    "priority": 2
+    }'
+"""
 
