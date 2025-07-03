@@ -152,3 +152,19 @@ curl -X 'POST' \
     }'
 """
 
+# Response body
+{
+    "todo_name": "newtodo",
+    "todo_description": "desc",
+    "priority": 2,
+    "todo_id": 6
+}
+
+# Response headers
+"""
+content-length: 74
+content-type: application/json
+date: Sat,15 Feb 2025 14:13:01 GMT
+server: uvicorn
+"""
+
