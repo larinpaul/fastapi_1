@@ -23,7 +23,7 @@ class TodoBase(BaseModel):
 class TodoCreate(TodoBase):
     pass
 
-class Todo(TodoBase)
+class Todo(TodoBase):
     todo_id: int = Field(..., description='Unique identifier of the todo')
 
 class TodoUpdate(BaseModel): # It is going to inherit from base, but it is going to be optional
@@ -127,7 +127,7 @@ def update_todo(todo_id: int, updated_todo: TodoUpdate):
 
 @api.delete('/todos/{todo_id}', response_model=Todo)
 def delete_todo(todo_id: int):
-    for index, todo in enumerate(all_todos)::
+    for index, todo in enumerate(all_todos):
         if todo.todo_id == todo_id:
             deleted_todo = all_todos.pop(index)
             return deleted_todo
